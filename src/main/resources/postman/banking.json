@@ -1,0 +1,452 @@
+{
+  "info": {
+    "_postman_id": "abc12345-6789-1234-5678-abcdef123456",
+    "name": "API Collection",
+    "description": "Collection of API endpoints for user management, authentication, and account operations.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "User Management",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\": \"string\", \"password\": \"string\", \"email\": \"string\", \"address\": \"string\", \"phoneNumber\": \"string\", \"countryCode\": \"string\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/register",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"identifier\": \"string\", \"password\": \"string\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Send OTP for Password Reset",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"identifier\": \"string\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/password-reset/send-otp",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "password-reset", "send-otp"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify OTP for Password Reset",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"identifier\": \"string\", \"otp\": \"string\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/password-reset/verify-otp",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "password-reset", "verify-otp"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Reset Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"identifier\": \"string\", \"resetToken\": \"string\", \"newPassword\": \"string\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/password-reset",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "auth", "password-reset"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Account Management",
+      "item": [
+        {
+          "name": "Create PIN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"pin\": \"string\", \"password\": \"string\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/account/pin/create",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "account", "pin", "create"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update PIN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"oldPin\": \"string\", \"password\": \"string\", \"newPin\": \"string\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/account/pin/update",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "account", "pin", "update"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Assets",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/account/assets",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "account", "assets"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Net Worth",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/account/net-worth",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "account", "net-worth"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Deposit Funds",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"amount\": \"number\", \"pin\": \"string\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/account/deposit",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "account", "deposit"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Withdraw Funds",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"amount\": \"number\", \"pin\": \"string\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/account/withdraw",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "account", "withdraw"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Fund Transfer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"targetAccountNumber\": \"string\", \"amount\": \"number\", \"pin\": \"string\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/account/fund-transfer",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "account", "fund-transfer"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Transactions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/account/transactions",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "account", "transactions"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buy Asset",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"assetSymbol\": \"string\", \"amount\": \"number\", \"pin\": \"string\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/account/buy-asset",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "account", "buy-asset"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Sell Asset",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"assetSymbol\": \"string\", \"quantity\": \"number\", \"pin\": \"string\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/account/sell-asset",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "account", "sell-asset"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Market Data",
+      "item": [
+        {
+          "name": "Get Market Prices",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/market/prices",
+              "host": ["{{baseUrl}}"],
+              "path": ["market", "prices"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Market Price by Symbol",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/market/prices/{{symbol}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["market", "prices", "{{symbol}}"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User Actions",
+      "item": [
+        {
+          "name": "Subscribe",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"amount\": \"number\", \"intervalSeconds\": \"number\", \"pin\": \"string\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/user-actions/subscribe",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "user-actions", "subscribe"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Enable Auto Invest",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"pin\": \"string\"}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/user-actions/enable-auto-invest",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "user-actions", "enable-auto-invest"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Logout",
+      "item": [
+        {
+          "name": "Logout User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/logout",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "logout"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Get User Details",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/dashboard/user",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "dashboard", "user"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Account Information",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/dashboard/account",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "dashboard", "account"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

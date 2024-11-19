@@ -1,0 +1,21 @@
+package com.hackathon.bankingapp.DTO;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+public class TransactionsHistoryResponse {
+
+    private long id;
+    private double amount;
+    private String transactionType;
+    private long transactionDate; // Epoch timestamp
+    private String sourceAccountNumber;
+    private String targetAccountNumber;
+
+}
